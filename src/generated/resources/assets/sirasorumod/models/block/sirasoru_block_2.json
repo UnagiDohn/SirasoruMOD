@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "sirasorumod:block/sirasoru_block_2_muji",
+    "down": "sirasorumod:block/sirasoru_block_2_muji",
+    "up": "sirasorumod:block/sirasoru_block_2_muji",
+    "north": "sirasorumod:block/sirasoru_block_2_face_anime",
+    "east": "sirasorumod:block/sirasoru_block_2_muji",
+    "south": "sirasorumod:block/sirasoru_block_2_muji",
+    "west": "sirasorumod:block/sirasoru_block_2_muji"
+  }
+}

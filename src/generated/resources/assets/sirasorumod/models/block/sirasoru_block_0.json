@@ -1,7 +1,7 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "sirasorumod:block/sirasoru_block_0_face",
+    "particle": "sirasorumod:block/sirasoru_block_0_muji",
     "down": "sirasorumod:block/sirasoru_block_0_muji",
     "up": "sirasorumod:block/sirasoru_block_0_muji",
     "north": "sirasorumod:block/sirasoru_block_0_face_anime",

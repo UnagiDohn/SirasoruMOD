@@ -1,5 +1,5 @@
 Java Launcher: C:\Users\bcc32\.jdks\temurin-17.0.9\bin\java.exe
-Arguments: '--in-jar, C:\work\mc\development\SirasoruMOD\build\libs\sirasorumod-1.0.jar, --out-jar, C:\work\mc\development\SirasoruMOD\build\reobfJar\output.jar, --srg-in, C:\work\mc\development\SirasoruMOD\build\createMcpToSrg\output.tsrg, --live'
+Arguments: '--in-jar, C:\work\mc\development\SirasoruMOD\build\libs\sirasorumod-1.1.jar, --out-jar, C:\work\mc\development\SirasoruMOD\build\reobfJar\output.jar, --srg-in, C:\work\mc\development\SirasoruMOD\build\createMcpToSrg\output.tsrg, --live'
 Classpath:
  - C:\Users\bcc32\.gradle\caches\forge_gradle\maven_downloader\net\md-5\SpecialSource\1.11.0\SpecialSource-1.11.0-shaded.jar
  - C:\Users\bcc32\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.4-45.2.0_mapped_official_1.19.4\forge-1.19.4-45.2.0_mapped_official_1.19.4.jar
@@ -126,14 +126,14 @@ Loading mappings... 40%
 Loading mappings... 50%
 0 packages, 7331 classes, 32664 fields, 62135 methods
 Remapping final jar
-Remapping jar...  3%
-Remapping jar... 13%
-Remapping jar... 22%
-Remapping jar... 31%
-Remapping jar... 41%
+Remapping jar...  2%
+Remapping jar... 10%
+Remapping jar... 20%
+Remapping jar... 30%
+Remapping jar... 40%
 Remapping jar... 50%
-Remapping jar... 63%
-Remapping jar... 72%
-Remapping jar... 81%
-Remapping jar... 91%
+Remapping jar... 60%
+Remapping jar... 70%
+Remapping jar... 80%
+Remapping jar... 90%
 Remapping jar... 100%

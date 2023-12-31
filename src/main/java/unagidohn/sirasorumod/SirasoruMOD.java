@@ -37,10 +37,16 @@ public class SirasoruMOD
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
-    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Block> SIRASORU_BLOCK_0 = BLOCKS.register("sirasoru_block_0", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
-    // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> SIRASORU_BLOCK_0_ITEM = ITEMS.register("sirasoru_block_0", () -> new BlockItem(SIRASORU_BLOCK_0.get(), new Item.Properties()));
+
+    public static final RegistryObject<Block> SIRASORU_BLOCK_1 = BLOCKS.register("sirasoru_block_1", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
+    public static final RegistryObject<Item> SIRASORU_BLOCK_1_ITEM = ITEMS.register("sirasoru_block_1", () -> new BlockItem(SIRASORU_BLOCK_1.get(), new Item.Properties()));
+    public static final RegistryObject<Block> SIRASORU_BLOCK_2 = BLOCKS.register("sirasoru_block_2", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
+    public static final RegistryObject<Item> SIRASORU_BLOCK_2_ITEM = ITEMS.register("sirasoru_block_2", () -> new BlockItem(SIRASORU_BLOCK_2.get(), new Item.Properties()));
+    public static final RegistryObject<Block> SIRASORU_BLOCK_3 = BLOCKS.register("sirasoru_block_3", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
+    public static final RegistryObject<Item> SIRASORU_BLOCK_3_ITEM = ITEMS.register("sirasoru_block_3", () -> new BlockItem(SIRASORU_BLOCK_3.get(), new Item.Properties()));
+
 
     public SirasoruMOD()
     {
@@ -69,8 +75,12 @@ public class SirasoruMOD
 
     private void addCreative(CreativeModeTabEvent.BuildContents event)
     {
-        if (event.getTab() == CreativeModeTabs.REDSTONE_BLOCKS)
+        if (event.getTab() == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.accept(SIRASORU_BLOCK_0_ITEM);
+            event.accept(SIRASORU_BLOCK_1_ITEM);
+            event.accept(SIRASORU_BLOCK_2_ITEM);
+            event.accept(SIRASORU_BLOCK_3_ITEM);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

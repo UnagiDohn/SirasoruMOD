@@ -3,7 +3,7 @@ Specification-Title: sirasorumod
 Specification-Vendor: sirasorumodsareus
 Specification-Version: 1
 Implementation-Title: SirasoruMOD
-Implementation-Version: 1.0
+Implementation-Version: 1.1
 Implementation-Vendor: sirasorumodsareus
-Implementation-Timestamp: 2024-01-01T01:56:32+0900
+Implementation-Timestamp: 2024-01-01T02:48:41+0900
 
