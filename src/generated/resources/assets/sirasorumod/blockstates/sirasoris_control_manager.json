@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "sirasorumod:block/sirasoris_control_manager"
+    }
+  }
+}

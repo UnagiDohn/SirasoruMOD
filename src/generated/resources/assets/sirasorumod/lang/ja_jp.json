@@ -3,5 +3,7 @@
   "block.sirasorumod.sirasoru_block_1": "しらそるさんブロック1",
   "block.sirasorumod.sirasoru_block_2": "しらそるさんブロック2",
   "block.sirasorumod.sirasoru_block_3": "しらそるさんブロック3",
-  "item.sirasorumod.sirasoris_rod": "しらそりすロッド"
+  "item.sirasorumod.sirasoris_rod": "しらそりすロッド",
+  "block.sirasorumod.block_muji": "無地ブロック",
+  "block.sirasorumod.sirasoris_control_manager": "しらそりすコントロールマネージャ"
 }
