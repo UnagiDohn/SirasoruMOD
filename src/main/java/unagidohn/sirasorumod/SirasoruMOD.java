@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -48,6 +49,9 @@ public class SirasoruMOD
     public static final RegistryObject<Item> SIRASORU_BLOCK_3_ITEM = ITEMS.register("sirasoru_block_3", () -> new BlockItem(SIRASORU_BLOCK_3.get(), new Item.Properties()));
 
 
+    public static final RegistryObject<Item> SIRASORIS_ROD = ITEMS.register("sirasoris_rod", () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+
+
     public SirasoruMOD()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -80,6 +84,8 @@ public class SirasoruMOD
             event.accept(SIRASORU_BLOCK_1_ITEM);
             event.accept(SIRASORU_BLOCK_2_ITEM);
             event.accept(SIRASORU_BLOCK_3_ITEM);
+        }else if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(SIRASORIS_ROD);
         }
     }
 
