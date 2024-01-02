@@ -8,22 +8,20 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class BlockEntitySirasorisControlManager extends BlockEntity {
     int gameFrame;
-    SirasorisManager sirasorisManager;
 
     public BlockEntitySirasorisControlManager(BlockPos pos, BlockState state) {
         super(SirasoruMOD.SIRASORIS_CONTROL_MANAGER_ENTITY.get(), pos, state);
 
-        sirasorisManager = new SirasorisManager();
         gameFrame = 0;
-
-        sirasorisManager.Init(pos, state);
     }
 
     public void tick() {
         System.out.println("Game Frame " + gameFrame++);
+
+        SirasoruMOD.sirasorisManager.Tick(gameFrame);
     }
 
     public void SetLevel(Level level){
-
+        SirasoruMOD.sirasorisManager.SetLevel(level);
     }
 }

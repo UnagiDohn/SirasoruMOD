@@ -61,7 +61,7 @@ public class SirasoruMOD
     public static final RegistryObject<Item> SIRASORIS_CONTROL_MANAGER_ITEM = ITEMS.register("sirasoris_control_manager", () -> new BlockItem(SIRASORIS_CONTROL_MANAGER.get(), new Item.Properties()));
     public static final RegistryObject<BlockEntityType<BlockEntitySirasorisControlManager>> SIRASORIS_CONTROL_MANAGER_ENTITY = BLOCK_ENTITIES.register("sirasoris_control_manager",
             () -> BlockEntityType.Builder.of(BlockEntitySirasorisControlManager::new, SIRASORIS_CONTROL_MANAGER.get()).build(null));
-
+    public static SirasorisManager sirasorisManager;
 
     public SirasoruMOD()
     {
@@ -82,7 +82,7 @@ public class SirasoruMOD
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-
+        sirasorisManager = new SirasorisManager();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
