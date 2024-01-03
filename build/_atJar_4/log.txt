@@ -1,0 +1,7 @@
+Java Launcher: F:\work\mc\jdk\bin\java.exe
+Arguments: '--inJar, C:\Users\Ryosuke\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.4-45.2.0\forge-1.19.4-45.2.0-injected.jar, --outJar, C:\Users\Ryosuke\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.4-45.2.0_mapped_official_1.19.4\forge-1.19.4-45.2.0_mapped_official_1.19.4.jar, --logFile, accesstransform.log, --atFile, F:\work\mc\SirasoruMOD\build\_atJar_4\parent_at.cfg'
+Classpath:
+ - C:\Users\Ryosuke\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\8.0.7\accesstransformers-8.0.7-fatjar.jar
+Working directory: F:\work\mc\SirasoruMOD\build\_atJar_4
+Main class: net.minecraftforge.accesstransformer.TransformerProcessor
+====================================

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SirasoruMOD.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SirasoruMOD.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SirasoruMOD.test.iml" filepath="$PROJECT_DIR$/.idea/modules/SirasoruMOD.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unagidohn.sirasorumod.SirasoruMOD.main.iml" filepath="$PROJECT_DIR$/.idea/modules/unagidohn.sirasorumod.SirasoruMOD.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unagidohn.sirasorumod.SirasoruMOD.test.iml" filepath="$PROJECT_DIR$/.idea/modules/unagidohn.sirasorumod.SirasoruMOD.test.iml" />
     </modules>
   </component>
 </project>

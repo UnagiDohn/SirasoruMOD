@@ -4,6 +4,9 @@
   "block.sirasorumod.sirasoru_block_2": "しらそるさんブロック2",
   "block.sirasorumod.sirasoru_block_3": "しらそるさんブロック3",
   "item.sirasorumod.sirasoris_rod": "しらそりすロッド",
+  "item.sirasorumod.sirasoris_left": "しらそりす左移動",
+  "item.sirasorumod.sirasoris_right": "しらそりす右移動",
+  "item.sirasorumod.sirasoris_rotation": "しらそりす回転",
   "block.sirasorumod.block_muji": "無地ブロック",
   "block.sirasorumod.sirasoris_control_manager": "しらそりすコントロールマネージャ"
 }

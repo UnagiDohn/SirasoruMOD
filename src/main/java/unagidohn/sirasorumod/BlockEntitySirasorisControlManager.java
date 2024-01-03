@@ -19,6 +19,8 @@ public class BlockEntitySirasorisControlManager extends BlockEntity {
         System.out.println("Game Frame " + gameFrame++);
 
         SirasoruMOD.sirasorisManager.Tick(gameFrame);
+
+        gameFrame = gameFrame % 1000;
     }
 
     public void SetLevel(Level level){

@@ -53,6 +53,9 @@ public class SirasoruMOD
 
 
     public static final RegistryObject<Item> SIRASORIS_ROD = ITEMS.register("sirasoris_rod", () -> new ItemSirasorisRod(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> SIRASORIS_LEFT = ITEMS.register("sirasoris_left", () -> new ItemSirasorisLeft(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> SIRASORIS_RIGHT = ITEMS.register("sirasoris_right", () -> new ItemSirasorisRight(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> SIRASORIS_ROTATION = ITEMS.register("sirasoris_rotation", () -> new ItemSirasorisRotation(new Item.Properties().rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Block> BLOCK_MUJI = BLOCKS.register("block_muji", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
     public static final RegistryObject<Item> BLOCK_MUJI_ITEM = ITEMS.register("block_muji", () -> new BlockItem(BLOCK_MUJI.get(), new Item.Properties()));
@@ -102,6 +105,9 @@ public class SirasoruMOD
             event.accept(SIRASORIS_CONTROL_MANAGER_ITEM);
         }else if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(SIRASORIS_ROD);
+            event.accept(SIRASORIS_LEFT);
+            event.accept(SIRASORIS_RIGHT);
+            event.accept(SIRASORIS_ROTATION);
         }
     }
 

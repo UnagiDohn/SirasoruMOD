@@ -1,5 +1,6 @@
 package unagidohn.sirasorumod;
 
+import mcp.client.Start;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -70,6 +71,10 @@ public class SirasorisManager {
             renderCellArray[yIndex] = new int[ARRAY_NUM_X];
         }
 
+        ClearBlock();
+    }
+
+    private void ClearBlock(){
         for(int yIndex = 0; yIndex < ARRAY_NUM_Y; yIndex++ ){
             for(int xIndex = 0; xIndex < ARRAY_NUM_X; xIndex++ ){
                 cellArray[yIndex][xIndex] = BLOCK_INVALID;
@@ -89,8 +94,7 @@ public class SirasorisManager {
         }
     }
     public InteractionResult Init(UseOnContext useOnContext){
-        isGameEnabled = true;
-        gameState = GameState.START;
+        gameState = GameState.IDLE;
 
         Level level = useOnContext.getLevel();
         BlockPos blockpos = useOnContext.getClickedPos();
@@ -101,11 +105,6 @@ public class SirasorisManager {
         if(level.isClientSide()) {
            return InteractionResult.PASS;
         }
-
-
-        System.out.println("item_use_player is " + player.getName());
-        System.out.println("click_pos is " + blockpos.getX() + "," + blockpos.getY() + "," + blockpos.getZ());
-        System.out.println("click_pos_block is " + blockstate.getBlock().getName());
 
         if (player instanceof ServerPlayer) {
             CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);
@@ -127,9 +126,196 @@ public class SirasorisManager {
 
         InitMino();
 
+        // しらそりすロゴを書く.
+        WriteSirasorisLogo();
+
         RefreshCell();
 
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+
+
+    private void WriteSirasorisLogo(){
+        ClearBlock();
+
+        cellArray[CELL_START_Y + 2][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 2][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 2][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 2][CELL_START_X + 6] = 0;
+        cellArray[CELL_START_Y + 2][CELL_START_X + 7] = 0;
+        cellArray[CELL_START_Y + 3][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 3][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 3][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 3][CELL_START_X + 8] = 0;
+        cellArray[CELL_START_Y + 4][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 4][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 4][CELL_START_X + 7] = 0;
+        cellArray[CELL_START_Y + 5][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 5][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 5][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 5][CELL_START_X + 6] = 0;
+        cellArray[CELL_START_Y + 6][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 6][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 6][CELL_START_X + 7] = 0;
+        cellArray[CELL_START_Y + 6][CELL_START_X + 8] = 0;
+
+        cellArray[CELL_START_Y + 8][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 8][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 8][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 8][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 8][CELL_START_X + 8] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 5] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 7] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 9] = 0;
+        cellArray[CELL_START_Y + 10][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 10][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 10][CELL_START_X + 8] = 0;
+        cellArray[CELL_START_Y + 11][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 11][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 11][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 12][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 12][CELL_START_X + 5] = 0;
+
+        cellArray[CELL_START_Y + 14][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 14][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 14][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 14][CELL_START_X + 6] = 0;
+        cellArray[CELL_START_Y + 14][CELL_START_X + 8] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 6] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 8] = 0;
+        cellArray[CELL_START_Y + 16][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 16][CELL_START_X + 6] = 0;
+        cellArray[CELL_START_Y + 16][CELL_START_X + 7] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X + 6] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X + 8] = 0;
+        cellArray[CELL_START_Y + 18][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 18][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 18][CELL_START_X + 6] = 0;
+        cellArray[CELL_START_Y + 18][CELL_START_X + 7] = 0;
+    }
+
+    private void WriteGameOver(){
+        ClearBlock();
+
+        cellArray[CELL_START_Y + 2][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 2][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 2][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 3][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 3][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 4][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 4][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 5][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 5][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 6][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 6][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 6][CELL_START_X + 3] = 0;
+
+        cellArray[CELL_START_Y + 7][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 7][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 8][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 8][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 8][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 9][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 10][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 10][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 10][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 11][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 11][CELL_START_X + 4] = 0;
+
+        cellArray[CELL_START_Y + 13][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 13][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 13][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 13][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 14][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 15][CELL_START_X + 4] = 0;
+        cellArray[CELL_START_Y + 16][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X + 1] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X + 2] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X + 3] = 0;
+        cellArray[CELL_START_Y + 17][CELL_START_X + 4] = 0;
+
+        WriteNumber(CELL_START_X + 6, CELL_START_Y + 2, 1);
+        WriteNumber(CELL_START_X + 6, CELL_START_Y + 8, 2);
+        WriteNumber(CELL_START_X + 6, CELL_START_Y + 14, 1);
+    }
+
+    private void WriteNumber(int baseX, int baseY, int number){
+        switch (number){
+            case 1:
+                cellArray[baseY + 0][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 0][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 0][baseX + 2] = 1;
+                cellArray[baseY + 1][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 1][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 1][baseX + 2] = 1;
+                cellArray[baseY + 2][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 2][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 2][baseX + 2] = 1;
+                cellArray[baseY + 3][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 3][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 3][baseX + 2] = 1;
+                cellArray[baseY + 4][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 4][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 4][baseX + 2] = 1;
+                break;
+            case 2:
+                cellArray[baseY + 0][baseX + 0] = 1;
+                cellArray[baseY + 0][baseX + 1] = 1;
+                cellArray[baseY + 0][baseX + 2] = 1;
+                cellArray[baseY + 1][baseX + 0] = 1;
+                cellArray[baseY + 1][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 1][baseX + 2] = BLOCK_EMPTY;
+                cellArray[baseY + 2][baseX + 0] = 1;
+                cellArray[baseY + 2][baseX + 1] = 1;
+                cellArray[baseY + 2][baseX + 2] = 1;
+                cellArray[baseY + 3][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 3][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 3][baseX + 2] = 1;
+                cellArray[baseY + 4][baseX + 0] = 1;
+                cellArray[baseY + 4][baseX + 1] = 1;
+                cellArray[baseY + 4][baseX + 2] = 1;
+                break;
+
+            default:
+                cellArray[baseY + 0][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 0][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 0][baseX + 2] = BLOCK_EMPTY;
+                cellArray[baseY + 1][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 1][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 1][baseX + 2] = BLOCK_EMPTY;
+                cellArray[baseY + 2][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 2][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 2][baseX + 2] = BLOCK_EMPTY;
+                cellArray[baseY + 3][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 3][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 3][baseX + 2] = BLOCK_EMPTY;
+                cellArray[baseY + 4][baseX + 0] = BLOCK_EMPTY;
+                cellArray[baseY + 4][baseX + 1] = BLOCK_EMPTY;
+                cellArray[baseY + 4][baseX + 2] = BLOCK_EMPTY;
+                break;
+        }
+    }
+
+    public void StartGame(){
+        isGameEnabled = true;
+
+        ClearBlock();
+        RefreshCell();
+
+        gameState = GameState.START;
     }
 
     private void RefreshCell(){
@@ -169,6 +355,9 @@ public class SirasorisManager {
     }
 
     private void RenderFallingMino(){
+        if(gameState == GameState.IDLE || gameState == GameState.START || gameState == GameState.CALL_MINO){
+            return;
+        }
         for(int yIndex = 0; yIndex < 4; yIndex++){
             for(int xIndex = 0; xIndex < 4; xIndex++) {
                 if(minoArray[fallingMino.ordinal()][yIndex][xIndex] == 1){
@@ -196,6 +385,9 @@ public class SirasorisManager {
 
     private void UpdateGame(){
         switch(gameState){
+            case IDLE:
+
+                break;
             case START:
                 gameState = GameState.CALL_MINO;
                 break;
@@ -219,7 +411,16 @@ public class SirasorisManager {
             }
             break;
             case END_MINO:
-                gameState = GameState.CALL_MINO;
+                if(CheckGameOver()){
+                    gameState = gameState.END;
+                }else{
+                    CheckLine();
+                    gameState = GameState.CALL_MINO;
+                }
+                break;
+            case END:
+                WriteGameOver();
+                gameState = gameState.IDLE;
                 break;
             default:
                 break;
@@ -266,6 +467,91 @@ public class SirasorisManager {
                 if(minoArray[fallingMino.ordinal()][yIndex][xIndex] == 1){
                     cellArray[fallingMinoY + yIndex][fallingMinoX + xIndex] = fallingMinoBlockId;
                 }
+            }
+        }
+    }
+
+    private void CheckLine(){
+        int yIndex = 0;
+        int lineCheckMax = CELL_NUM_Y * 3;
+
+        for (int lineCheckCounter = 0; lineCheckCounter < lineCheckMax; lineCheckCounter++) {
+            boolean isLineComplete = true;
+            for (int xIndex = 0; xIndex < CELL_NUM_X; xIndex++) {
+                if (cellArray[CELL_START_Y + yIndex][CELL_START_X + xIndex] == BLOCK_EMPTY) {
+                    isLineComplete = false;
+                    break;
+                }
+            }
+
+            if(isLineComplete){
+                for(int yIndexMover = yIndex; yIndexMover < CELL_NUM_Y; yIndexMover++){
+                    for (int xIndex = 0; xIndex < CELL_NUM_X; xIndex++) {
+                        cellArray[CELL_START_Y + yIndexMover][CELL_START_X + xIndex] = cellArray[CELL_START_Y + yIndexMover + 1][CELL_START_X + xIndex];
+                    }
+                }
+            }else{
+                yIndex++;
+                if(yIndex >= CELL_NUM_Y){
+                    break;
+                }
+            }
+        }
+    }
+
+    private boolean CheckGameOver(){
+        boolean isGameOver = false;
+        for(int yIndex = CELL_START_Y + CELL_NUM_Y; yIndex < ARRAY_NUM_Y; yIndex++){
+            for (int xIndex = 0; xIndex < CELL_NUM_X; xIndex++) {
+                if(cellArray[yIndex][CELL_START_X + xIndex] != BLOCK_EMPTY){
+                    isGameOver = true;
+                }
+            }
+        }
+        return isGameOver;
+    }
+
+    public void MoveLeft(){
+        if(gameState == GameState.IDLE){
+            StartGame();
+            return;
+        }
+
+        int nextFallingMinoX = fallingMinoX - 1;
+        boolean isValid = IsValidMinoPos(nextFallingMinoX, fallingMinoY, fallingMino);
+        if(isValid){
+            fallingMinoX = nextFallingMinoX;
+        }
+    }
+    public void MoveRight(){
+        if(gameState == GameState.IDLE){
+            StartGame();
+            return;
+        }
+
+        int nextFallingMinoX = fallingMinoX + 1;
+        boolean isValid = IsValidMinoPos(nextFallingMinoX, fallingMinoY, fallingMino);
+        if(isValid){
+            fallingMinoX = nextFallingMinoX;
+        }
+    }
+    public void Rotation(){
+        if(gameState == GameState.IDLE){
+            StartGame();
+            return;
+        }
+
+        FallBlock();
+    }
+
+    public void FallBlock(){
+        for(int fallY = fallingMinoY; fallY > 0; fallY --){
+            int nextFallingMinoY = fallingMinoY - 1;
+            boolean isValid = IsValidMinoPos(fallingMinoX, nextFallingMinoY, fallingMino);
+            if(isValid){
+                fallingMinoY = nextFallingMinoY;
+            }else{
+                break;
             }
         }
     }
