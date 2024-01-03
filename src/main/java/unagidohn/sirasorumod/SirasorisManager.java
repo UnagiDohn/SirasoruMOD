@@ -29,6 +29,8 @@ public class SirasorisManager {
     final int BLOCK_EMPTY = 4;
     final int BLOCK_INVALID = 5;
 
+    final int ROTATION_NUM = 4;
+
     int axisXDir = -1;
 
     int axisYDir = 1;
@@ -503,7 +505,7 @@ public class SirasorisManager {
         }
         for(int yIndex = 0; yIndex < 4; yIndex++){
             for(int xIndex = 0; xIndex < 4; xIndex++) {
-                if(minoArray[fallingMino.ordinal()][yIndex][xIndex] == 1){
+                if(minoArray[fallingMino.ordinal()][fallingMinoRotation][yIndex][xIndex] == 1){
                     renderCellArray[fallingMinoY + yIndex][fallingMinoX + xIndex] = fallingMinoBlockId;
                 }
             }
@@ -598,7 +600,7 @@ public class SirasorisManager {
     private boolean IsValidMinoPos(int baseX, int baseY, Mino mino){
         for(int yIndex = 0; yIndex < 4; yIndex++){
             for(int xIndex = 0; xIndex < 4; xIndex++) {
-                if(minoArray[mino.ordinal()][yIndex][xIndex] == 1){
+                if(minoArray[mino.ordinal()][fallingMinoRotation][yIndex][xIndex] == 1){
                     if(cellArray[baseY + yIndex][baseX + xIndex] != BLOCK_EMPTY){
                         return false;
                     }
@@ -611,7 +613,7 @@ public class SirasorisManager {
     private void WriteCurrentMinoToCell(){
         for(int yIndex = 0; yIndex < 4; yIndex++){
             for(int xIndex = 0; xIndex < 4; xIndex++) {
-                if(minoArray[fallingMino.ordinal()][yIndex][xIndex] == 1){
+                if(minoArray[fallingMino.ordinal()][fallingMinoRotation][yIndex][xIndex] == 1){
                     cellArray[fallingMinoY + yIndex][fallingMinoX + xIndex] = fallingMinoBlockId;
                 }
             }
@@ -692,7 +694,9 @@ public class SirasorisManager {
             return;
         }
 
-        FallBlock();
+        fallingMinoRotation = (fallingMinoRotation + 1) % ROTATION_NUM;
+
+        //FallBlock();
     }
 
     public void FallBlock(){
@@ -707,51 +711,192 @@ public class SirasorisManager {
         }
     }
 
-    int[][][] minoArray;
+    int[][][][] minoArray;
     private void InitMino(){
-        minoArray = new int[Mino.Num.ordinal()][][];
-        minoArray[Mino.Sikaku.ordinal()] = new int[][]{
-                {1, 1, 0, 0},
-                {1, 1, 0, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}
+        minoArray = new int[Mino.Num.ordinal()][][][];
+        minoArray[Mino.Sikaku.ordinal()] = new int [][][]{
+                {
+                        {1, 1, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {1, 1, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {1, 1, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {1, 1, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                }
         };
 
-        minoArray[Mino.Lji.ordinal()] = new int[][]{
-                {1, 0, 0, 0},
-                {1, 0, 0, 0},
-                {1, 1, 0, 0},
-                {0, 0, 0, 0}
+        minoArray[Mino.Lji.ordinal()] = new int[][][]{
+                {
+                        {0, 0, 1, 0},
+                        {1, 1, 1, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 1, 1, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 0, 0, 0},
+                        {1, 1, 1, 0},
+                        {1, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {1, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, 0}
+                }
+
         };
-        minoArray[Mino.Jji.ordinal()] = new int[][]{
-                {0, 1, 0, 0},
-                {0, 1, 0, 0},
-                {1, 1, 0, 0},
-                {0, 0, 0, 0}
+        minoArray[Mino.Jji.ordinal()] = new int[][][]{
+                {
+                        {1, 0, 0, 0},
+                        {1, 1, 1, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 1, 0},
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 0, 0, 0},
+                        {1, 1, 1, 0},
+                        {0, 0, 1, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 0, 0, 0}
+                }
         };
-        minoArray[Mino.Tji.ordinal()] = new int[][]{
-                {1, 0, 0, 0},
-                {1, 1, 0, 0},
-                {1, 0, 0, 0},
-                {0, 0, 0, 0}
+        minoArray[Mino.Tji.ordinal()] = new int[][][]{
+                {
+                        {0, 1, 0, 0},
+                        {1, 1, 1, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 0, 0},
+                        {0, 1, 1, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 0, 0, 0},
+                        {1, 1, 1, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, 0}
+                }
         };
-        minoArray[Mino.Bou.ordinal()] = new int[][]{
-                {1, 0, 0, 0},
-                {1, 0, 0, 0},
-                {1, 0, 0, 0},
-                {1, 0, 0, 0}
+        minoArray[Mino.Bou.ordinal()] = new int[][][]{
+                {
+                        {0, 0, 0, 0},
+                        {1, 1, 1, 1},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 0, 1, 0},
+                        {0, 0, 1, 0},
+                        {0, 0, 1, 0},
+                        {0, 0, 1, 0}
+                },
+                {
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0},
+                        {1, 1, 1, 1},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 0}
+                }
         };
-        minoArray[Mino.Sji.ordinal()] = new int[][]{
-                {1, 0, 0, 0},
-                {1, 1, 0, 0},
-                {0, 1, 0, 0},
-                {0, 0, 0, 0}
+        minoArray[Mino.Sji.ordinal()] = new int[][][]{
+                {
+                        {0, 1, 1, 0},
+                        {1, 1, 0, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 0, 0},
+                        {0, 1, 1, 0},
+                        {0, 0, 1, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 0, 0, 0},
+                        {0, 1, 1, 0},
+                        {1, 1, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {1, 0, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, 0}
+                }
         };
-        minoArray[Mino.Sji_Gyaku.ordinal()] = new int[][]{
-                {0, 1, 0, 0},
-                {1, 1, 0, 0},
-                {1, 0, 0, 0},
-                {0, 0, 0, 0}
+        minoArray[Mino.Sji_Gyaku.ordinal()] = new int[][][]{
+                {
+                        {1, 1, 0, 0},
+                        {0, 1, 1, 0},
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 0, 1, 0},
+                        {0, 1, 1, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 0, 0, 0},
+                        {1, 1, 0, 0},
+                        {0, 1, 1, 0},
+                        {0, 0, 0, 0}
+                },
+                {
+                        {0, 1, 0, 0},
+                        {1, 1, 0, 0},
+                        {1, 0, 0, 0},
+                        {0, 0, 0, 0}
+                }
         };
         fallingMinoX = 5;
         fallingMinoY = 10;
