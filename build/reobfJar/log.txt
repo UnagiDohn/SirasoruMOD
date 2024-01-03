@@ -1,5 +1,5 @@
 Java Launcher: F:\work\mc\jdk\bin\java.exe
-Arguments: '--in-jar, F:\work\mc\SirasoruMOD\build\libs\sirasorumod-1.1.jar, --out-jar, F:\work\mc\SirasoruMOD\build\reobfJar\output.jar, --srg-in, F:\work\mc\SirasoruMOD\build\createMcpToSrg\output.tsrg, --live'
+Arguments: '--in-jar, F:\work\mc\SirasoruMOD\build\libs\sirasorumod-2.0.jar, --out-jar, F:\work\mc\SirasoruMOD\build\reobfJar\output.jar, --srg-in, F:\work\mc\SirasoruMOD\build\createMcpToSrg\output.tsrg, --live'
 Classpath:
  - C:\Users\Ryosuke\.gradle\caches\forge_gradle\maven_downloader\net\md-5\SpecialSource\1.11.0\SpecialSource-1.11.0-shaded.jar
  - C:\Users\Ryosuke\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.4-45.2.0_mapped_official_1.19.4\forge-1.19.4-45.2.0_mapped_official_1.19.4.jar
